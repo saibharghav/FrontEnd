@@ -1,306 +1,153 @@
-<p>applicationn works!</p>
-<!-- <div class="bg-img">
-    <div class="row">
-        <div class="col-md-4">
-            <p class="text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt alias, adipisci laudantium quis
-                explicabo repudiandae doloremque voluptate labore ducimus voluptatibus maxime, nisi deserunt vel voluptatum
-                delectus laboriosam porro voluptas harum tenetur molestiae nobis. Ut accusantium odit soluta aliquid saepe,
-                sapiente quae temporibus repellat asperiores esse accusamus dolore quod recusandae molestias?</p> -->
-        <!-- </div>
-        <div class="col-md-4 mandy" style="color: white;">
-            <hr color="white" width="55%">
-            <form style="padding: 10px;">
-                <p>PROPERTY DETAILS</p>
+<div class="container">
+    <form  #applicationForm="ngForm" (ngSubmit)="applyNow()">
+        <div class="row">
+            <div class="col-md-1">
+    
+            </div>
+            <div class="col-md-4">
+                <h3>PROPERTY DETAILS</h3>
                 <div class="form-group">
-                    <label for="pLoc">Property Location</label>
-                    <input type="text" class="form-control" id="pLoc" placeholder="Location">
+                    <label  class="form-label">Property Location</label>
+                    <input type="text" name="proLoc" class="form-control" required #proLoc="ngModel" [(ngModel)]="customerApplicationDTO.proLoc" [ngModelOptions]="{standalone: true}"  placeholder="Location" ngDefaultControl>
                 </div>
                 <div class="form-group">
-                    <label for="pName">Property Name</label>
-                    <input type="text" class="form-control" id="pName" placeholder="Name">
+                    <label class="form-label">Property Name</label>
+                    <input type="text" name="proName" class="form-control" required #proName="ngModel" [(ngModel)]="customerApplicationDTO.proName" [ngModelOptions]="{standalone: true}"  placeholder="Name" ngDefaultControl>
                 </div>
                 <div class="form-group">
-                    <label for="Eamt">Estimated Amount</label>
-                    <input type="text" class="form-control" id="Eamt" placeholder="Amount">
+                    <label class="form-label">Estimated Amount</label>
+                    <input type="number" name="estAmt" class="form-control" required #estAmt="ngModel" [(ngModel)]="customerApplicationDTO.estAmt" [ngModelOptions]="{standalone: true}"  placeholder="Amount" ngDefaultControl> 
                 </div>
-                <button class="btn btn-success btn-block">Submit</button>
+            </div>
+            <div class="col-md-2">
+    
+            </div>
+            <div class="col-md-4">
+                <h3>INCOME DETAILS</h3>
+                <div class="form-group">
+                    <label class="form-label">TypeOfEmployement</label>
+                    <input type="text" name="appToe" class="form-control" required #appToe="ngModel" [(ngModel)]="customerApplicationDTO.appToe" [ngModelOptions]="{standalone: true}" placeholder="TOE" ngDefaultControl>
+                </div>
+                <div class="form-group">
+                    <label  class="form-label">Retirement Age</label>
+                    <input type="number" name="retirAge" class="form-control" required #retirAge="ngModel" [(ngModel)]="customerApplicationDTO.retirAge" [ngModelOptions]="{standalone: true}" placeholder="Age" ngDefaultControl>
+                </div>
+                <div class="form-group">
+                    <label  class="form-label">Organization Type: </label>
+                 <select id="org" name="org">
+                <option value="Salaried" class="form-control" required #org="ngModel" [(ngModel)]="customerApplicationDTO.org" [ngModelOptions]="{standalone: true}" ngDefaultControl>Salaried</option>
+             <option value="Self-Employed" class="form-control" required #org="ngModel" [(ngModel)]="customerApplicationDTO.org" [ngModelOptions]="{standalone: true}" ngDefaultControl>Self-Employed</option>
+             </select>
 
-                <p>INCOME DETAILS</p>
-                <div class="form-group">
-                    <label for="TOE">TypeOfEmployement</label>
-                    <input type="text" class="form-control" id="TOE" placeholder="TOE">
                 </div>
                 <div class="form-group">
-                    <label for="age">Retirement Age</label>
-                    <input type="password" class="form-control" id="age" placeholder="Age">
+                    <label  class="form-label">Employer Name</label>
+                    <input type="text" name="empName" class="form-control" required #empName="ngModel" [(ngModel)]="customerApplicationDTO.empName" [ngModelOptions]="{standalone: true}" placeholder="Name" ngDefaultControl>
                 </div>
-                <div class="form-group">
-                    <label for="type">Organization Type</label>
-                    <input type="password" class="form-control" id="type" placeholder="Org Type">
-                </div>
-                <div class="form-group">
-                    <label for="ename">Employer Name</label>
-                    <input type="text" class="form-control" id="ename" placeholder="Name">
-                </div>
-                <button class="btn btn-success btn-block">Submit</button>
-
-                <p>Loan Details</p>
-                <div class="form-group">
-                    <label for="Mamt">Max Loan Amount Grantable</label>
-                    <input type="text" class="form-control" id="Mamt" placeholder="Maxamt">
-                </div>
-                <div class="form-group">
-                    <label for="Irate">Interest Rate</label>
-                    <input type="password" class="form-control" id="Irate" placeholder="Interest Rate">
-                </div>
-                <div class="form-group">
-                    <label for="Tenure">Tenure</label>
-                    <input type="password" class="form-control" id="Tenure" placeholder="Tenure">
-                </div>
-                <div class="form-group">
-                    <label for="lamt">Loan Amount</label>
-                    <input type="text" class="form-control" id="lamt" placeholder="Lamt">
-                </div>
-                <button class="btn btn-success btn-block">Submit</button>
-                <p>PERSONAL-DETAILS</p>
-                <div class="form-group">
-                    <label for="FirstName">FirstName</label>
-                    <input type="text" class="form-control" id="FirstName" placeholder="First Name">
-                </div>
-                <div class="form-group">
-                    <label for="MiddleName">MiddleName</label>
-                    <input type="text" class="form-control" id="MiddleName" placeholder="Middle Name">
-                </div>
-                <div class="form-group">
-                    <label for="LastName">LastName</label>
-                    <input type="text" class="form-control" id="LastName" placeholder="Last Name">
-                </div>
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="text" class="form-control" id="Email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="Password">Password</label>
-                    <input type="password" class="form-control" id="Password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="ConfirmPassword">ConfirmPassword</label>
-                    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
-                </div>
-                <div class="form-group">
-                    <label for="MobileNumber">Mobile Number</label>
-                    <input type="text" class="form-control" id="MobileNumber" placeholder="MobileNumber">
-                </div>
-                <div class="form-group">
-                    <label for="dob">DOB</label>
-                    <input type="text" class="form-control" id="dob" placeholder="DateOfBirth">
-                </div>
-                <div class="form-group">
-                    <label for="Gender">Gender</label>
-                    <input type="radio" class="form-control" name="gender" value="male"> Male<br>
-                    <input type="radio" class="form-control" name="gender" value="female"> Female<br>
-                </div>
-                <div class="form-group">
-                    <label for="nationality">Nationality</label>
-                    <input type="text" class="form-control" id="nationality" placeholder="Nationality">
-                </div>
-                <div class="form-group">
-                    <label for="Aadhar">Aadhaar Number</label>
-                    <input type="text" class="form-control" id="Aadhar" placeholder="Aadhaar">
-                </div>
-                <div class="form-group">
-                    <label for="Pan">Pan Number</label>
-                    <input type="text" class="form-control" id="pan" placeholder="Pan Number">
-                </div>
-                <button class="btn btn-success btn-block">Submit</button>
-
-                <p>DOCS</p>
-                <div class="form-group">
-                    <table>
-                        <tr>
-                            <td>Pan card</td>
-                            <td><input type="file" class="form-control" id="pan"></td>
-
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Voter Id</td>
-                            <td><input type="file" class="form-control" id="voterid"></td>
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Salary Slip</td>
-                            <td><input type="file" class="form-control" id="salslip"></td>
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>LOA</td>
-                            <td><input type="file" class="form-control" id="loa"></td>
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Agreement To Sale</td>
-                            <td><input type="file" class="form-control" id="sale"></td>
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>NOC from Builder</td>
-                            <td><input type="file" class="form-control" id="noc"></td>
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <div class="d-grid gap-2 col-6 mx-auto">
-                                    <button name="psubmit" class="btn btn-primary btn-lg">Submit</button>
-                                </div>
-                            </td>
-                    </table>
-            </form>
+            </div>
+            <div class="col-md-1">
+    
+            </div>
         </div>
-    </div> 
-</div> -->
-<div class="row">
-    <div class="col-md-2">
-        <p class="text-left">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores soluta qui, esse ea omnis quae praesentium. Explicabo rem voluptates dignissimos.
-        </p>
-    </div>
-    <div class="col-md-10">
-        <div class="col-md-4 mandy" style="color: white;">
-            <hr color="white" width="55%">
-            <form style="padding: 10px;">
-                <p>PROPERTY DETAILS</p>
+        <hr>
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+    
+            </div>
+            <div class="col-md-4">
+                <h3>LOAN DETAILS</h3>
                 <div class="form-group">
-                    <label for="pLoc">Property Location</label>
-                    <input type="text" class="form-control" id="pLoc" placeholder="Location">
+                    <label  class="form-label">Max Loan Amount Grantable</label>
+                    <input type="text" class="form-control" id="Mamt" placeholder="Maxamt" readonly value="100000000" >
                 </div>
                 <div class="form-group">
-                    <label for="pName">Property Name</label>
-                    <input type="text" class="form-control" id="pName" placeholder="Name">
+                    <label  class="form-label">Interest Rate</label>
+                    <input type="number" class="form-control" id="Irate" value="8.5" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="Eamt">Estimated Amount</label>
-                    <input type="text" class="form-control" id="Eamt" placeholder="Amount">
-                </div>
-                <button class="btn btn-success btn-block">Submit</button>
-
-                <p>INCOME DETAILS</p>
-                <div class="form-group">
-                    <label for="TOE">TypeOfEmployement</label>
-                    <input type="text" class="form-control" id="TOE" placeholder="TOE">
+                    <label for="form-label">Salary</label>
+                    <input type="number" class="form-control" id="Isal" required #salary="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="customerApplicationDTO.salary" ngDefaultControl placeholder="Salary">
                 </div>
                 <div class="form-group">
-                    <label for="age">Retirement Age</label>
-                    <input type="password" class="form-control" id="age" placeholder="Age">
+                    <label  class="form-label">Tenure</label>
+                    <input type="number" name="tenure" class="form-control" required #tenure="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="customerApplicationDTO.tenure" ngDefaultControl placeholder="Tenure">
                 </div>
                 <div class="form-group">
-                    <label for="type">Organization Type</label>
-                    <input type="password" class="form-control" id="type" placeholder="Org Type">
+                    <label  class="form-label">Loan Amount</label>
+                    <input type="number"  name="loanAmt" class="form-control" required #loanAmt="ngModel" [(ngModel)]="customerApplicationDTO.loanAmt" [ngModelOptions]="{standalone: true}" placeholder="Lamt" ngDefaultControl>
                 </div>
-                <div class="form-group">
-                    <label for="ename">Employer Name</label>
-                    <input type="text" class="form-control" id="ename" placeholder="Name">
-                </div>
-                <button class="btn btn-success btn-block">Submit</button>
-
-                <p>Loan Details</p>
-                <div class="form-group">
-                    <label for="Mamt">Max Loan Amount Grantable</label>
-                    <input type="text" class="form-control" id="Mamt" placeholder="Maxamt">
-                </div>
-                <div class="form-group">
-                    <label for="Irate">Interest Rate</label>
-                    <input type="password" class="form-control" id="Irate" placeholder="Interest Rate">
-                </div>
-                <div class="form-group">
-                    <label for="Tenure">Tenure</label>
-                    <input type="password" class="form-control" id="Tenure" placeholder="Tenure">
-                </div>
-                <div class="form-group">
-                    <label for="lamt">Loan Amount</label>
-                    <input type="text" class="form-control" id="lamt" placeholder="Lamt">
-                </div>
-                <button class="btn btn-success btn-block">Submit</button>
-                <p>PERSONAL-DETAILS</p>
-                <div class="form-group">
-                    <label for="FirstName">FirstName</label>
-                    <input type="text" class="form-control" id="FirstName" placeholder="First Name">
-                </div>
-                <div class="form-group">
-                    <label for="MiddleName">MiddleName</label>
-                    <input type="text" class="form-control" id="MiddleName" placeholder="Middle Name">
-                </div>
-                <div class="form-group">
-                    <label for="LastName">LastName</label>
-                    <input type="text" class="form-control" id="LastName" placeholder="Last Name">
-                </div>
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="text" class="form-control" id="Email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="Password">Password</label>
-                    <input type="password" class="form-control" id="Password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="ConfirmPassword">ConfirmPassword</label>
-                    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
-                </div>
-                <div class="form-group">
-                    <label for="MobileNumber">Mobile Number</label>
-                    <input type="text" class="form-control" id="MobileNumber" placeholder="MobileNumber">
-                </div>
-                <div class="form-group">
-                    <label for="dob">DOB</label>
-                    <input type="text" class="form-control" id="dob" placeholder="DateOfBirth">
-                </div>
-                <div class="form-group">
-                    <label for="Gender">Gender</label>
-                    <input type="radio" class="form-control" name="gender" value="male"> Male<br>
-                    <input type="radio" class="form-control" name="gender" value="female"> Female<br>
-                </div>
-                <div class="form-group">
-                    <label for="nationality">Nationality</label>
-                    <input type="text" class="form-control" id="nationality" placeholder="Nationality">
-                </div>
-                <div class="form-group">
-                    <label for="Aadhar">Aadhaar Number</label>
-                    <input type="text" class="form-control" id="Aadhar" placeholder="Aadhaar">
-                </div>
-                <div class="form-group">
-                    <label for="Pan">Pan Number</label>
-                    <input type="text" class="form-control" id="pan" placeholder="Pan Number">
-                </div>
-                <button class="btn btn-success btn-block">Submit</button>
-
-
-                <p>DOCS</p>
-                <table>
-                    <div class="form-group">
-                        <tr>
-                            <td>Pan card</td>
-                            <td><input type="file" class="form-control" id="pan"></td>
-                        
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                    </div>
-                    <div class="from-group">
-                        <tr>
-                            <td>Voter Id</td>
-                            <td><input type="file" class="form-control" id="voterid"></td>
-                            <td class="upload-btn"><button type="submit" class="btn btn-primary mb-2">UPLOAD</button>
-                            </td>
-                        </tr>
-                    </div>
-                </table>
-            </form>
+            </div>
+            <div class="col-md-4">
+    
+            </div>
         </div>
-    </div>
+        <hr>
+        <hr>
+        <div class="row">
+            <div class="col-md-1">
+    
+            </div>
+
+            <div class="col-md-4">
+                <h3>PERSONAL-DETAILS</h3>
+                <div class="form-group">
+                    <label  class="form-label">DOB</label>
+                    <input type="date"name="dob" class="form-control" required #dob="ngModel" [(ngModel)]="customerApplicationDTO.dob"  placeholder="DateOfBirth" [ngModelOptions]="{standalone: true}" ngDefaultControl>
+                </div>
+                <div class="form-group">
+                    <label  class="form-label">Gender</label>
+                    <input type="radio" class="form-control" name="gender"  value="male" required #gender="ngModel" [(ngModel)]="customerApplicationDTO.gender" [ngModelOptions]="{standalone: true}" ngDefaultControl> Male<br>
+                    <input type="radio" class="form-control" name="gender" value="female" required #gender="ngModel" [(ngModel)]="customerApplicationDTO.gender" [ngModelOptions]="{standalone: true}" ngDefaultControl> Female<br>
+                </div>
+                <div class="form-group">
+                    <label  class="form-label">Nationality</label>
+                    <input type="text" name="nationality" class="form-control" required #nationality="ngModel" [(ngModel)]="customerApplicationDTO.nationality" [ngModelOptions]="{standalone: true}" placeholder="Nationality" ngDefaultControl>
+                </div>
+                <div class="form-group">
+                    <label  class="form-label">Aadhaar Number</label>
+                    <input type="number" name="aadharno" class="form-control" required #aadharno="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="customerApplicationDTO.aadharno"  placeholder="Aadhaar" ngDefaultControl ngDefaultControl> 
+                </div>
+                <div class="form-group">
+                    <label  class="form-label">Pan Number</label>
+                    <input type="text" name="panno" class="form-control" required #panno="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="customerApplicationDTO.panno"  placeholder="Pan Number" ngDefaultControl>
+                </div>
+            </div>
+            <div class="col-md-1">
+    
+            </div>
+            <div class="col-md-5">
+                <h3>DOCUMENTS</h3>
+                <div class="form-group">
+                    <label for="Aadhar">Aadhar</label>
+                    <input type="file" class="form-control" id="Aadhar"><br>
+                    <button class="btn btn-primary" id="UAadhar">UPLOAD</button>
+                </div>
+                <div class="form-group">
+                    <label for="Pan">Pan</label>
+                    <input type="file" class="form-control" id="Pan"><br>
+                    <button class="btn btn-primary" id="UPan">UPLOAD</button>
+                </div>
+                <div class="form-group">
+                    <label for="agreement">VoterID</label>
+                    <input type="file" class="form-control" id="agreement"><br>
+                    <button class="btn btn-primary" id="Uagreement">UPLOAD</button>
+                </div>
+                <div class="form-group">
+                    <label for="LOA">Letter of Agreement</label>
+                    <input type="file" class="form-control" id="LOA"><br>
+                    <button class="btn btn-primary" id="ULOA">UPLOAD</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+
+            </div>
+            <div class="col-md-5">
+                <p>Button</p>
+                <button class="btn btn-success btn-block">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>

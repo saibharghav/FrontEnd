@@ -1,1 +1,78 @@
-<p>admin-dashboard works!</p>
+<!-- <p>admin-dashboard works!</p>
+<table class="Applicaitons">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Loan Amount</th>
+            <th>Email-ID</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>row.name</td>
+            <td>{{row.loanAmt}}</td>
+            <td>{{row.email}}</td>
+            <td>row.status</td>
+            <td><select id="selectedOption">
+                <option value="APPROVE">Approve</option>
+                <option value="REJECT">Reject</option>
+            </select></td>
+            <td><button type="submit" (click)="onClick()">Save</button></td>
+        </tr>
+    </tbody>
+</table> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+        
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-primary btn-block" type="submit" (click)="onSubmit()">Applications</button>
+        </div>
+        <div class="col-sm-4">
+        
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Applicaiton ID</th>
+                        <th scope="col">Employment Type</th>
+                        <th scope="col">Salary per month</th>
+                        <th scope="col">Loan Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">EMI Amount</th>
+                        <th scope="col">Click</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let application of applications">
+                        <td>{{application.empName}}</td>
+                        <td>{{application.applicationId}}</td>
+                        <td>{{application.appToe}}</td>
+                        <td>{{application.salary|currency :'INR' }}</td>
+                        <td>{{application.loanAmt|currency :'INR' }}</td>
+                        <td>{{application.status}}</td>
+                        <td>{{application.emiAmount|currency :'INR' }}</td>
+                        <td>
+                            <select id="selectedOption">
+                                <option value="APPROVE">Approve</option>
+                                <option value="REJECT">Reject</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" (click)="onClick(application.applicationId)">Submit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

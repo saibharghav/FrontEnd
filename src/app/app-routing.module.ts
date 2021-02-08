@@ -15,8 +15,9 @@ import { LoantrackerComponent } from './loantracker/loantracker.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ApplicationnComponent } from './applicationn/applicationn.component';
 const routes: Routes = [
-  {path:'register',pathMatch:'full', component:RegisterComponent},
+  {path:'register', component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'calculator',component:CalculatorComponent},
   {path:'aboutus',component:AboutUsComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'loantracker',component:LoantrackerComponent},
   {path:'loginpage',component:LoginpageComponent},
   {path:'admin-user',component:AdminLoginComponent},
-  {path:'admin-dashboard',component:AdminDashboardComponent}
+  {path:'admin-dashboard',component:AdminDashboardComponent},
+  {path:'application',component:ApplicationnComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes,{useHash : false})],

@@ -9,44 +9,78 @@
         <div class="col-md-4 mandy" style="color: white;">
             <h3 align="center">Register for Account</h3>
             <hr color="white" width="55%">
-            <form style="padding: 10px;">
+            <form style="padding: 10px;" #myForm="ngForm" [formGroup]="CustomerForm" (ngSubmit)="onSubmit()" >
                 <div class="form-group">
-                    <label for="FirstName">FirstName</label>
-                    <input type="text" class="form-control" id="FirstName" placeholder="First Name">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName">
+                    <div *ngIf="!CustomerForm.controls.firstName?.valid && myForm.submitted " [ngStyle]="{'color':'red'}">
+                        FirstName is required
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="MiddleName">MiddleName</label>
-                    <input type="text" class="form-control" id="MiddleName" placeholder="Middle Name">
+                    <label for="middleName">Middle Name</label>
+                    <input type="text" class="form-control" name="middleName" id="middleName" formControlName="middleName">
                 </div>
+
                 <div class="form-group">
-                    <label for="LastName">LastName</label>
-                    <input type="text" class="form-control" id="LastName" placeholder="Last Name">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName">
+                    <div *ngIf="!CustomerForm.controls.lastName?.valid && myForm.submitted" [ngStyle]="{'color':'red'}">
+                        Last Name is required
+                    </div>
                 </div>
+
+
                 <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="text" class="form-control" id="Email" placeholder="Email">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" formControlName="email">
+                    <div *ngIf="!CustomerForm.controls.email?.valid && myForm.submitted" [ngStyle]="{'color':'red'}">
+                        email is required
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="Password">Password</label>
-                    <input type="password" class="form-control" id="Password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="ConfirmPassword">ConfirmPassword</label>
-                    <input type="password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password">
-                </div>
+
                 <div class="form-group">
                     <label for="MobileNumber">Mobile Number</label>
-                    <input type="text" class="form-control" id="MobileNumber" placeholder="MobileNumber">
+                    <input type="text" class="form-control" name="mobileNumber" id="mobileNumber" formControlName="mobileNumber">
+                    <div *ngIf="!CustomerForm.controls.mobileNumber?.valid && myForm.submitted" [ngStyle]="{'color':'red'}">
+                        Mobile Number is required
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="PinCode">PinCode</label>
-                    <input type="text" class="form-control" id="PinCode" placeholder="PinCode">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" formControlName="password">
+                    <div *ngIf="!CustomerForm.controls.password?.valid && myForm.submitted" [ngStyle]="{'color':'red'}">
+                        Password is required
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="TypeOfEmployement">Type of Employement</label>
-                    <input type="text" class="form-control" id="TypeOfEmployement" placeholder="Type">
+                    <label for="ConformPassword">Conform Password</label>
+                    <input type="password" class="form-control" id="ConformPassword">
                 </div>
-                <button class="btn btn-success btn-block" routerLink="/login">Submit</button>
+
+                <div class="form-group">
+                    <label for="pinCode">Pin Code</label>
+                    <input type="text" class="form-control" (click)="onClick()" name="pinCode" id="pinCode" formControlName="pinCode">
+                    <div *ngIf="!CustomerForm.controls.pinCode?.valid && myForm.submitted" [ngStyle]="{'color':'red'}">
+                        Pin Code is required
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="toe">Type Of Employement</label>
+                    <input type="text" class="form-control" name="toe" id="toe" formControlName="toe">
+                    <div *ngIf="!CustomerForm.controls.toe?.valid && myForm.submitted" [ngStyle]="{'color':'red'}">
+                        Type of Employement is required
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
             </form>
         </div>
     </div>

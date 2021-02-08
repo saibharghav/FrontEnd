@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +20,9 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ApplicationnComponent } from './applicationn/applicationn.component';
+import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegisterServiceService } from './register-service.service';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,12 @@ import { ApplicationnComponent } from './applicationn/applicationn.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [RegisterServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
