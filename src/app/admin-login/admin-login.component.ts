@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Admin } from '../login';
 
@@ -8,7 +9,13 @@ import { Admin } from '../login';
   styleUrls: ['./admin-login.component.css']
 })
 export class AdminLoginComponent implements OnInit {
-  admin:Admin;
+admin:Admin;
+
+  //form validation formGroup
+  Aform=new FormGroup({
+    email:new FormControl('',[Validators.required, Validators.email]),
+    password:new FormControl('', Validators.required)
+  })
   constructor(private router:Router) { 
     this.admin=new Admin();
   }
@@ -29,5 +36,4 @@ export class AdminLoginComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
 }

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
@@ -23,4 +23,40 @@
 
     </div>
 </div>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <form [formGroup]="Aform" style="padding: 10px ;">
+                <h3 style="padding-left:100px">Sign-In</h3>
+                <div>
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input type="email" [(ngModel)]="admin.adminemail" id="Email" class="form-control" name="email"
+                            formControlName="email"
+                            [ngClass]="{'is-invalid':Aform.get('email').touched && Aform.get('email').invalid}">
+
+                        <div *ngIf="Aform.get('email').touched && Aform.get('email').invalid" class="invalid-feedback">
+                            <div *ngIf="Aform.get('email').errors.required">Email is required</div>
+                            <div *ngIf="Aform.get('email').errors.email">Email must be a valid Email Addres</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" formControlName="password" [(ngModel)]="admin.adminpass"
+                            [ngClass]="{'is-invalid':Aform.get('password').touched && Aform.get('password').invalid}"
+                            class="form-control" id="password" name="password">
+
+                        <div class="invalid-feedback">
+                            <div>Password is required</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" [disabled]="!Aform.valid" (click)="onSubmit()">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+
+    </div>
+</div>

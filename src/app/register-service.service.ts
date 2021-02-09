@@ -35,14 +35,14 @@ export class RegisterServiceService {
     return this.myhttp.get<ApplicationsDTO[]>(this.baseUrl+"allApplications/");
   }
 
-  public rejectStatus(id:number):Observable<any>
+  public rejectStatus(id:number)
   {
-    return this.myhttp.put<any>(this.baseUrl+"rejectStatus/",id);
+    return this.myhttp.put(this.baseUrl+"rejectStatus/"+id, id);
   }
 
-  public approveStatus(id:number) :Observable<any>
+  public approveStatus(id:number)
   {
     alert("In approve status")
-    return this.myhttp.put<any>(this.baseUrl+"approveStatus/",id)
+    return this.myhttp.put(this.baseUrl+"approveStatus/"+id, id);
   }
 }

@@ -1,10 +1,6 @@
 <div class="bg-img">
     <div class="row">
         <div class="col-md-4">
-            <!-- <p class="text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt alias, adipisci laudantium quis
-                explicabo repudiandae doloremque voluptate labore ducimus voluptatibus maxime, nisi deserunt vel voluptatum
-                delectus laboriosam porro voluptas harum tenetur molestiae nobis. Ut accusantium odit soluta aliquid saepe,
-                sapiente quae temporibus repellat asperiores esse accusamus dolore quod recusandae molestias?</p> -->
         </div>
         <div class="col-md-4 mandy" style="color: white;">
             <h3 align="center">Register for Account</h3>
@@ -50,7 +46,7 @@
 
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" formControlName="password">
+                    <input type="password" class="form-control" name="password" id="password" formControlName="password" placeholder="Should be atleast 6 characters">
                     <div *ngIf="!CustomerForm.controls.password?.valid && myForm.submitted" [ngStyle]="{'color':'red'}">
                         Password is required
                     </div>
@@ -76,10 +72,8 @@
                         Type of Employement is required
                     </div>
                 </div>
-
-
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" [disabled]="!CustomerForm.valid" class="btn btn-success"><span class="glyphicon glyphicon-home"></span>Submit</button>
                 </div>
             </form>
         </div>

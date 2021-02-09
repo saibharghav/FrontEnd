@@ -1,34 +1,56 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-1 col-sm-offset-2">
+        <div class="col-sm-5 col-sm-offset-2 border border-info rounded jumbotron">
+            <h4 class="bg-info w-50 p-2" style="color: white;">Eligibility calculator</h4>
+            <form>
+                <div class="form-group col-xs-4">
+                    <label for="MonthlyIncome">Monthly Income</label>
+                    <input type="number" class="form-control" id="MonthlyIncome" [ngModel]="monthlyincome"
+                        (keyup)="handleMonthlyIncomeEvent($event)">
+                </div>
+                <div class="form-group col-xs-4">
+                    <label for="ROI">ROI</label>
+                    <input type="number" class="form-control" id="ROI" disabled>
+                </div>
+                <div class="form-group col-xs-4">
+                    <button class="btn btn-success btn-large" (click)="cal()" type="submit">Calculate
+
+                    </button>
+                </div>
+                <div class="form-group col-xs-4">
+                    <label for="Eligibility">Eligibility</label>
+                    <input *ngIf="flag" type="number" class="form-control" value="{{eligibility}}">
+                </div>
+            </form>
         </div>
         <div class="col-sm-2"></div>
         <div class="col-sm-5 col-sm-offset-2 border border-info rounded jumbotron">
             <h4 class="bg-info w-50 p-2" style="color: white;">EMI Calculator</h4>
             <form>
-                <!-- <div class="form-group col-xs-4">
-                    <label for="Monthly">Monthly Income</label>
-                    <input type="text" class="form-control" id="Monthly" #Monthly>
-                </div> -->
                 <div class="form-group col-xs-4">
-                    <label for="Loan" >Loan</label>
-                    <input type="text" class="form-control" id="Loan" #LOAN>
+                    <label for="Loan">Loan</label>
+                    <input type="text" class="form-control" id="Loan" (keyup)="handleLoanEvent($event)">
                 </div>
                 <div class="form-group col-xs-4">
                     <label for="Tenure">Tenure</label>
-                    <input type="text" class="form-control" id="Tenure" #TENURE>
+                    <input type="text" class="form-control" id="Tenure" (keyup)="handleTenureEvent($event)">
                 </div>
                 <div class="form-group col-xs-4">
                     <label for="ROI1">ROI</label>
-                    <input type="text" class="form-control" id="ROI1" #ROI>
+                    <input type="text" class="form-control" id="ROI1" (keyup)="handleRoiEvent($event)">
                 </div>
                 <div class="form-group ">
-                    <button class="btn btn-success btn-large" type="button" (click)="onEMI(LOAN.value,TENURE.value,ROI.value)">Calculate</button>
+                    <button class="btn btn-success btn-large" (click)="calemi()" type="submit">Calculate</button>
                 </div>
-                <h3 *ngIf="bool">{{currentVal | currency: 'INR'}}</h3>
+                <div class="form-group ">
+                    <label for="EMI">EMI</label>
+                    <input *ngIf="flag" type="number" class="form-control" id="EMI" value="{{emi1}}">
+                    <h3 *ngIf="flag">Your EMI will be ₹{{emi1}} per month </h3>
+                    <h3 *ngIf="flag">Total Interest Payable ₹{{interest}} </h3>
+                    <h3 *ngIf="flag">Total Payment (Principle + Interest): ₹{{totalAmt}} </h3>
+                </div>
             </form>
-        </div>
-        <div class="col-sm-1 col-sm-offset-2 ">
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

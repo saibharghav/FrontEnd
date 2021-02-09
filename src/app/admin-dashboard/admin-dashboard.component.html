@@ -36,11 +36,12 @@
         </div>
     </div>
 </div>
+<hr>
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <table class="table table-bordered">
-                <thead>
+            <table class="table shadow-lg p-3 mb-5 bg-white rounded">
+                <thead class="thead-dark">
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Applicaiton ID</th>
@@ -49,7 +50,8 @@
                         <th scope="col">Loan Amount</th>
                         <th scope="col">Status</th>
                         <th scope="col">EMI Amount</th>
-                        <th scope="col">Click</th>
+                        <th scope="col">Approve/Reject</th>
+                        <th scope="col">SUBMIT</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,13 +64,10 @@
                         <td>{{application.status}}</td>
                         <td>{{application.emiAmount|currency :'INR' }}</td>
                         <td>
-                            <select id="selectedOption">
-                                <option value="APPROVE">Approve</option>
-                                <option value="REJECT">Reject</option>
-                            </select>
+                            <button class="btn btn-success" (click)="onClick(application.applicationId,'APPROVE')">Approve</button>
                         </td>
                         <td>
-                            <button class="btn btn-primary" (click)="onClick(application.applicationId)">Submit</button>
+                            <button class="btn btn-danger" (click)="onClick(application.applicationId,'REJECTED')">Reject</button>
                         </td>
                     </tr>
                 </tbody>

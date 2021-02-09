@@ -27,7 +27,16 @@ flag: boolean=false;
         if(data===""){
           this.status="Invalid Application Id";
         }
-        else{this.status=data;}
+        else{
+          if(data=="Approved")
+          {
+            this.status=data+". Your Account Number is "+this.app_id
+          }
+          else
+          {
+            this.status=data;
+          }
+        }
       } else{
         alert("Invalid Application ID ");
       }   
@@ -41,15 +50,13 @@ flag: boolean=false;
       this.trackerService.getBalance(this.Bapp_id).subscribe((data)=>{
         if(data!=null)
         {
-         alert("loading");
-          if(data==="")
+          if(data=="")
           {
-            this.Bstatus="Invalid Application Id";
-            alert("loading Invalid");
+            this.Bstatus="Invalid Account Id";
           }
           else{this.Bstatus=data;}
         } else{
-          alert("Invalid Application ID ");
+          alert("Invalid Account ID ");
         }
         this.flag=true;   
       });

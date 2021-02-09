@@ -1,11 +1,12 @@
 <div class="container">
-    <form  #applicationForm="ngForm" (ngSubmit)="applyNow()">
+    <form  #applicationForm="ngForm" (ngSubmit)="applyNow()" ngNativeValidate>
         <div class="row">
             <div class="col-md-1">
     
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 shadow-lg p-3 mb-5 bg-white rounded">
                 <h3>PROPERTY DETAILS</h3>
+                <hr width="100%">
                 <div class="form-group">
                     <label  class="form-label">Property Location</label>
                     <input type="text" name="proLoc" class="form-control" required #proLoc="ngModel" [(ngModel)]="customerApplicationDTO.proLoc" [ngModelOptions]="{standalone: true}"  placeholder="Location" ngDefaultControl>
@@ -22,8 +23,9 @@
             <div class="col-md-2">
     
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 shadow-lg p-3 mb-5 bg-white rounded">
                 <h3>INCOME DETAILS</h3>
+                <hr>
                 <div class="form-group">
                     <label class="form-label">TypeOfEmployement</label>
                     <input type="text" name="appToe" class="form-control" required #appToe="ngModel" [(ngModel)]="customerApplicationDTO.appToe" [ngModelOptions]="{standalone: true}" placeholder="TOE" ngDefaultControl>
@@ -34,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label  class="form-label">Organization Type: </label>
-                 <select id="org" name="org">
+                 <select id="org" class="form-control" name="org">
                 <option value="Salaried" class="form-control" required #org="ngModel" [(ngModel)]="customerApplicationDTO.org" [ngModelOptions]="{standalone: true}" ngDefaultControl>Salaried</option>
              <option value="Self-Employed" class="form-control" required #org="ngModel" [(ngModel)]="customerApplicationDTO.org" [ngModelOptions]="{standalone: true}" ngDefaultControl>Self-Employed</option>
              </select>
@@ -49,14 +51,16 @@
     
             </div>
         </div>
-        <hr>
-        <hr>
+        <div class="row">
+
+        </div>
         <div class="row">
             <div class="col-md-4">
     
             </div>
-            <div class="col-md-4">
-                <h3>LOAN DETAILS</h3>
+            <div class="col-md-4 shadow-lg p-3 mb-5 bg-white rounded">
+                <h3>LOAN REQUUIREMENTS</h3>
+                <hr>
                 <div class="form-group">
                     <label  class="form-label">Max Loan Amount Grantable</label>
                     <input type="text" class="form-control" id="Mamt" placeholder="Maxamt" readonly value="100000000" >
@@ -71,26 +75,28 @@
                 </div>
                 <div class="form-group">
                     <label  class="form-label">Tenure</label>
-                    <input type="number" name="tenure" class="form-control" required #tenure="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="customerApplicationDTO.tenure" ngDefaultControl placeholder="Tenure">
+                    <input type="number" name="tenure" class="form-control" required #tenure="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="customerApplicationDTO.tenure" ngDefaultControl placeholder="Tenure in years">
                 </div>
                 <div class="form-group">
                     <label  class="form-label">Loan Amount</label>
-                    <input type="number"  name="loanAmt" class="form-control" required #loanAmt="ngModel" [(ngModel)]="customerApplicationDTO.loanAmt" [ngModelOptions]="{standalone: true}" placeholder="Lamt" ngDefaultControl>
+                    <input type="number"  name="loanAmt" class="form-control" required #loanAmt="ngModel" [(ngModel)]="customerApplicationDTO.loanAmt" [ngModelOptions]="{standalone: true}" placeholder="Loan Amount" ngDefaultControl>
                 </div>
             </div>
             <div class="col-md-4">
     
             </div>
         </div>
-        <hr>
-        <hr>
+        <div class="row">
+
+        </div>
         <div class="row">
             <div class="col-md-1">
     
             </div>
 
-            <div class="col-md-4">
-                <h3>PERSONAL-DETAILS</h3>
+            <div class="col-md-4 shadow-lg p-3 mb-5 bg-white rounded">
+                <h3>PERSONAL DETAILS</h3>
+                <hr>
                 <div class="form-group">
                     <label  class="form-label">DOB</label>
                     <input type="date"name="dob" class="form-control" required #dob="ngModel" [(ngModel)]="customerApplicationDTO.dob"  placeholder="DateOfBirth" [ngModelOptions]="{standalone: true}" ngDefaultControl>
@@ -113,11 +119,12 @@
                     <input type="text" name="panno" class="form-control" required #panno="ngModel" [ngModelOptions]="{standalone: true}" [(ngModel)]="customerApplicationDTO.panno"  placeholder="Pan Number" ngDefaultControl>
                 </div>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-2">
     
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4 shadow-lg p-3 mb-5 bg-white rounded">
                 <h3>DOCUMENTS</h3>
+                <hr>
                 <div class="form-group">
                     <label for="Aadhar">Aadhar</label>
                     <input type="file" class="form-control" id="Aadhar"><br>
@@ -141,12 +148,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-4">
 
             </div>
-            <div class="col-md-5">
-                <p>Button</p>
+            <div class="col-md-4">
                 <button class="btn btn-success btn-block">Submit</button>
+            </div>
+            <div class="col-md-4">
+
             </div>
         </div>
     </form>
